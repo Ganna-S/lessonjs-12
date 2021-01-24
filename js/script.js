@@ -18,7 +18,7 @@
 
 // console.log(personalMovieDB);
 
-"use strict";
+
 
 // if (1) {
 //     console.log('Ok!');
@@ -40,19 +40,49 @@
 
 // (num === 50) ? console.log('Ok!') : console.log('Error');
 
-const num = '50';
+// const num = '50';
 
-switch (num) {
-    case '49':
-        console.log('Error');
-        break;
-    case '100':
-        console.log('Error');
-        break;
-    case '50':
-        console.log('Ok');
-        break;
-    default:
-        console.log('Not this time');
-        break;
-}
+// switch (num) {
+//     case '49':
+//         console.log('Error');
+//         break;
+//     case '100':
+//         console.log('Error');
+//         break;
+//     case '50':
+//         console.log('Ok');
+//         break;
+//     default:
+//         console.log('Not this time');
+//         break;
+// }
+
+// "use strict";
+
+// let num = 50;
+
+// while (num <= 55) {
+//     console.log(num);
+//     num++;
+// }
+
+// do {
+//     console.log(num);
+//     num++;
+// }
+// while (num <= 55);
+
+// for (let i = 1; i < 8; i++) {
+//     console.log(num);
+//     num++;
+// }
+
+//i < 0 - ,бескончный цикл
+
+// for (let i = 1; i < 10; i++) {
+//     if (i === 6) {
+//         // break; - прерывает цикл
+//         continue; - исключает значение из цикла, т.е прерывает шаг
+//     }
+//     console.log(i);
+// }
