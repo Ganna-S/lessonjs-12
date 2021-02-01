@@ -244,85 +244,202 @@ genres
 
 P.S. Функции вызывать не обязательно*/
 
-'use strict';
+// 'use strict';
 
-// Код возьмите из предыдущего домашнего задания
+// // Код возьмите из предыдущего домашнего задания
 
-let numberOfFilms;
+// let numberOfFilms;
 
-function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// function start() {
+//     numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
-
-// start();
-
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
-
-
-
-
-function rememberMyFilms() {
-    for (let i = 0; i < 2; i++) {
-        const a = prompt('Один из последних просмотренных фильмов?', ''),
-            b = prompt('На сколько оцените его?');
-
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log('Done');
-        } else {
-            console.log('Error');
-            i--;
-        }
-    }
-}
-
-// rememberMyFilms();
-
-
-
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        console.log("Просмотрено довольно мало фильмов");
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log("Вы классический зритель");
-    } else if (personalMovieDB.count >= 30) {
-        console.log("Вы киноман");
-    } else {
-        console.log("Произошла ошибка");
-    }
-}
-
-// detectPersonalLevel ();
-
-function showMyDB(hidden) {
-    if (!hidden) {
-        console.log(personalMovieDB);
-    }
-}
-
-showMyDB(personalMovieDB.privat);
-
-// function writeYourGenres() {
-//     for (let i = 1; i <= 3; i++) {
-//         const genre = prompt(`Ваш любимый жанр под номером ${i}`);
-//         personalMovieDB.genres[i - 1] = genre;
+//     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+//         numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 //     }
 // }
 
-function writeYourGenres() {
-    for (let i = 1; i <= 3; i++) {
-        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+// // start();
+
+// const personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+
+
+
+
+// function rememberMyFilms() {
+//     for (let i = 0; i < 2; i++) {
+//         const a = prompt('Один из последних просмотренных фильмов?', ''),
+//             b = prompt('На сколько оцените его?');
+
+//         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//             personalMovieDB.movies[a] = b;
+//             console.log('Done');
+//         } else {
+//             console.log('Error');
+//             i--;
+//         }
+//     }
+// }
+
+// // rememberMyFilms();
+
+
+
+// function detectPersonalLevel() {
+//     if (personalMovieDB.count < 10) {
+//         console.log("Просмотрено довольно мало фильмов");
+//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//         console.log("Вы классический зритель");
+//     } else if (personalMovieDB.count >= 30) {
+//         console.log("Вы киноман");
+//     } else {
+//         console.log("Произошла ошибка");
+//     }
+// }
+
+// // detectPersonalLevel ();
+
+// function showMyDB(hidden) {
+//     if (!hidden) {
+//         console.log(personalMovieDB);
+//     }
+// }
+
+// showMyDB(personalMovieDB.privat);
+
+// // function writeYourGenres() {
+// //     for (let i = 1; i <= 3; i++) {
+// //         const genre = prompt(`Ваш любимый жанр под номером ${i}`);
+// //         personalMovieDB.genres[i - 1] = genre;
+// //     }
+// // }
+
+// function writeYourGenres() {
+//     for (let i = 1; i <= 3; i++) {
+//         personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+//     }
+// }
+
+// writeYourGenres();
+
+
+
+// function first() {
+//     //Do something
+//     setTimeout(function() {
+//         console.log(1);
+//     }, 500);
+// }
+
+// function second() {
+//     console.log(2);
+// }
+
+// first();
+// second();
+
+// function learnJS(lang, callback) {
+//     console.log(`Я учу: ${lang}`);
+//     callback();
+// }
+
+// function done() {
+//     console.log('Я прошел этот урок!')
+// }
+
+// learnJS('JavaScript', done);
+
+//колбек фунскция выполняется строко поле клика, позволяют нам выполнять определенный код строко после того как завершится предыдущий
+
+// "use strict";
+
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function() {
+//         console.log("Test");
+//     }
+// };
+
+// options.makeTest();
+
+// const {border, bg} = options.colors; //деструктуризация объектов 
+// console.log(border);
+
+// const {border, bg} = options.colors;
+// console.log(border);
+// console.log(Object.keys(options).length);
+
+// console.log(options.name);
+
+// delete options.name;
+
+// console.log(options);
+
+/* let counter = 0;
+for (let key in options) {
+    if (typeof (options[key]) === 'object') {
+        for (let i in options[key]) {
+            console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+            counter++;
+        }
+    } else {
+        console.log(`Свойство ${key} имеет значение ${options[key]}`);
+        counter++;
     }
 }
+console.log(counter);
+ */
+//объекты - это структуры которые могут сохрянять в себе любые типы данных в формате ключ - значение.
 
-writeYourGenres();
+
+// массивы - это структуры которые содержат элементы по порядку
+
+"use strict";
+
+const arr = [2, 12, 34, 11, 10];
+arr.sort(compareNum);
+console.log(arr);
+
+function compareNum(a, b) {
+    return a - b;
+}
+
+// arr[99] = 0;
+// console.log(arr.length); // свойство length состоит из последнего индекса + 1
+
+// console.log(arr);
+
+// arr.forEach(function(item, i, arr) {
+//     console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+// arr.pop();
+// arr.push(10);
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+// for (let value of arr) {
+//     console.log(value);
+// }
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// products.sort();
+// console.log(products.join('; '));
+
+//псевдомасив - это объект структура которого совпадает со структурой массива,
+// но у него нем вообще никаких методов - просто структура, которая хранит данные по порядку
