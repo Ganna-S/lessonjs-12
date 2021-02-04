@@ -446,101 +446,136 @@ function compareNum(a, b) {
 
 // передача данных по ссылке или по значению
 
-"use strict";
+// "use strict";
 
-// let a = 5,
-//     b = a;
+// // let a = 5,
+// //     b = a;
 
-// b = b + 5;
+// // b = b + 5;
 
-// console.log(b);
-// console.log(a);
+// // console.log(b);
+// // console.log(a);
 
-// const obj = {
-//     a: 5,
-//     b: 1
+// // const obj = {
+// //     a: 5,
+// //     b: 1
+// // };
+
+// // const copy = obj;  // передача значения идет по ссылке
+
+// // copy.a = 10;
+
+// // console.log(copy);
+// // console.log(obj);
+
+// function copy(mainObj) {
+//     let objCopy = {};
+
+//     let key;
+//     for (key in mainObj) {
+//         objCopy[key] = mainObj [key];
+//     }
+
+//     return objCopy;
+// }
+
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
 // };
 
-// const copy = obj;  // передача значения идет по ссылке
+// const newNumbers = copy(numbers);
 
-// copy.a = 10;
+// newNumbers.a = 10;
+// newNumbers.c.x = 10; //поверхностная копия объекта
 
-// console.log(copy);
-// console.log(obj);
+// // console.log(newNumbers);
+// // console.log(numbers);
 
-function copy(mainObj) {
-    let objCopy = {};
+// const add = {
+//     d: 17,
+//     e: 20
+// };
 
-    let key;
-    for (key in mainObj) {
-        objCopy[key] = mainObj [key];
+// const clone = Object.assign({}, add);
+// clone.d = 20;
+
+// // console.log(add);
+// // console.log(clone);
+
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice();
+
+// newArray[1] = 'ascffdhyhj';
+// console.log(newArray);
+// console.log(oldArray);
+
+// const video = ['youtube', 'vimeo', 'rutube'],
+//       blogs = ['wordpress', 'livejornal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
+
+// console.log(internet);
+
+// function log(a, b, c) {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+
+// const num = [2, 5, 7];
+
+// //используем спред оператор (ES6)
+
+// log(...num);
+
+// // (ES6) спред оператор
+
+// const array = ["a", "b"];
+
+// const newAarray = [...array];
+
+// const q = {
+//     one: 1,
+//     two: 2
+// };
+
+// const newObj = {...q};
+
+//Объектно ориентированное програмирование (ООП) - один из его стилей
+//Прототипно ориентированное програмирование т.е мы представляем любую вещь как объект
+
+"use strict";
+
+let str = "some";
+let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+console.dir([1,2,3]);
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    seyHello: function() {
+        console.log("Hello");
     }
-
-    return objCopy;
-}
-
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x: 7,
-        y: 4
-    }
 };
 
-const newNumbers = copy(numbers);
+const jonh = Object.create(soldier); //современная практика
 
-newNumbers.a = 10;
-newNumbers.c.x = 10; //поверхностная копия объекта
+// const jonh = {
+//     health: 100
+// };
 
-// console.log(newNumbers);
-// console.log(numbers);
+// jonh.__proto__ = soldier; //устаревшая практика,
+// сейчас не используют, подробнее в прикрепленной документации
 
-const add = {
-    d: 17,
-    e: 20
-};
+// Object.setPrototypeOf(jonh, soldier); //современная практика создания прототипа
 
-const clone = Object.assign({}, add);
-clone.d = 20;
-
-// console.log(add);
-// console.log(clone);
-
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
-
-newArray[1] = 'ascffdhyhj';
-console.log(newArray);
-console.log(oldArray);
-
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejornal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
-
-console.log(internet);
-
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
-}
-
-const num = [2, 5, 7];
-
-//используем спред оператор (ES6)
-
-log(...num);
-
-// (ES6) спред оператор
-
-const array = ["a", "b"];
-
-const newAarray = [...array];
-
-const q = {
-    one: 1,
-    two: 2
-};
-
-const newObj = {...q};
+// console.log(jonh.armor);
+jonh.seyHello();
