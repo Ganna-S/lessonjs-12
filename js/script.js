@@ -548,34 +548,230 @@ function compareNum(a, b) {
 //Объектно ориентированное програмирование (ООП) - один из его стилей
 //Прототипно ориентированное програмирование т.е мы представляем любую вещь как объект
 
-"use strict";
+// "use strict";
 
-let str = "some";
-let strObj = new String(str);
+// let str = "some";
+// let strObj = new String(str);
 
-// console.log(typeof(str));
-// console.log(typeof(strObj));
+// // console.log(typeof(str));
+// // console.log(typeof(strObj));
 
-console.dir([1,2,3]);
+// console.dir([1,2,3]);
 
-const soldier = {
-    health: 400,
-    armor: 100,
-    seyHello: function() {
-        console.log("Hello");
-    }
-};
-
-const jonh = Object.create(soldier); //современная практика
-
-// const jonh = {
-//     health: 100
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     seyHello: function() {
+//         console.log("Hello");
+//     }
 // };
 
-// jonh.__proto__ = soldier; //устаревшая практика,
-// сейчас не используют, подробнее в прикрепленной документации
+// const jonh = Object.create(soldier); //современная практика
 
-// Object.setPrototypeOf(jonh, soldier); //современная практика создания прототипа
+// // const jonh = {
+// //     health: 100
+// // };
 
-// console.log(jonh.armor);
-jonh.seyHello();
+// // jonh.__proto__ = soldier; //устаревшая практика,
+// // сейчас не используют, подробнее в прикрепленной документации
+
+// // Object.setPrototypeOf(jonh, soldier); //современная практика создания прототипа
+
+// // console.log(jonh.armor);
+// jonh.seyHello();
+
+
+/* Задание на урок:
+
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
+// 'use strict';
+
+// // Код возьмите из предыдущего домашнего задания
+
+// const personalMovieDB = {
+//     count: 0,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false,
+//     start: function () {
+//         personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+//         while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+//             personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//         }
+//     },
+//     rememberMyFilms: function () {
+//         for (let i = 0; i < 2; i++) {
+//             const a = prompt('Один из последних просмотренных фильмов?', ''),
+//                 b = prompt('На сколько оцените его?');
+
+//             if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//                 personalMovieDB.movies[a] = b;
+//                 console.log('Done');
+//             } else {
+//                 console.log('Error');
+//                 i--;
+//             }
+//         }
+//     },
+//     detectPersonalLevel: function () {
+//         if (personalMovieDB.count < 10) {
+//             console.log("Просмотрено довольно мало фильмов");
+//         } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//             console.log("Вы классический зритель");
+//         } else if (personalMovieDB.count >= 30) {
+//             console.log("Вы киноман");
+//         } else {
+//             console.log("Произошла ошибка");
+//         }
+//     },
+//     showMyDB: function (hidden) {
+//         if (!hidden) {
+//             console.log(personalMovieDB);
+//         }
+//     },
+//     toggleVisibleMyDB: function () {
+//         if (personalMovieDB.privat) {
+//             personalMovieDB.privat = false;
+//         } else {
+//             personalMovieDB.privat = true;
+//         }
+//     },
+//     writeYourGenres: function () {
+//         for (let i = 1; i < 2; i++) {
+//             // let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+
+//             // if (genre === '' || genre == null) {
+//             //     console.log('Вы ввели некорректные данные');
+//             //     i--;
+//             // } else {
+//             //     personalMovieDB.genres[i - 1] = genre;
+//             // }
+
+//             let genres = prompt(`Введите ваши любимые жанры через запятую`).toLocaleLowerCase();
+
+//             if (genres === '' || genres == null) {
+//                 console.log('Вы ввели некорректные данные');
+//                 i--;
+//             } else {
+//                 personalMovieDB.genres = genres.split(', ');
+//                 personalMovieDB.genres.sort();
+//             }
+//         }
+
+//         personalMovieDB.genres.forEach((item, i) => {
+//             console.log(`Любимый жанр ${i + 1} - это ${item}`);
+//         });
+//     }
+// };
+
+
+//консоль разработчика
+
+// "use strict";
+
+// function hello() {
+//     console.log("Hello World");
+//     debugger;
+// }
+
+// hello();
+
+// function hi() {
+//     console.log('Say hi!');
+// }
+
+// hi();
+
+// const arr = [1, 14, 4, 30, 54],
+//       sorted = arr.sort(compareNum);
+
+// function compareNum(a, b) {
+//     return a - b;
+// }
+
+// console.log(sorted);
+
+// 
+//типичные задачи собеседований
+
+// •	Какое будет выведено значение: let x = 5; alert( x++ ); ?
+
+// •	Чему равно такое выражение: [ ] + false - null + true ?
+
+// •	Что выведет этот код: let y = 1; let x = y = 2; alert(x); ?
+
+// •	Чему равна сумма [ ] + 1 + 2?
+
+// •	Что выведет этот код: alert( "1"[0] )?
+
+// •	Чему равно 2 && 1 && null && 0 && undefined ?
+
+// •	Есть ли разница между выражениями? !!( a && b ) и (a && b)?
+
+// •	Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
+
+// •	a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
+
+// •	Что выведет этот код: alert( +"Infinity" ); ?
+
+// •	Верно ли сравнение: "Ёжик" > "яблоко"?
+
+// •	Чему равно 0 || "" || 2 || undefined || true || falsе ?
+
+// 1) Какое будет выведено значение: let x = 5; alert( x++ ); ?
+// let x = 5; alert( x++ ); - будет 5 потому что ++ после x
+
+// 2) Чему равно такое выражение: [ ] + false - null + true ?
+// console.log(typeof([] + false)); - это строка, когды мы работаем с пустым массивом в таких операциях, то мы получаем строку
+
+// console.log([] + false - null + true); - NaN
+
+// 3) Что выведет этот код: let y = 1; let x = y = 2; alert(x); ?
+// let y = 1; 
+// let x = y = 2; // - цепочка справа на лево, тк число- это примитивный тип данных, то он просто передается по значению
+// alert(x);
+
+// 4) Чему равна сумма [ ] + 1 + 2?
+// console.log([] + 1 + 2); // строка "12"
+
+// 5) Что выведет этот код: alert( "1"[0] )?
+// alert( "1"[0] );
+
+// 6)Чему равно 2 && 1 && null && 0 && undefined ?
+// console.log(2 && 1 && null && 0 && undefined); // правило: оператор и (&&) всегда запинается на лжи, тут мы получим null (всегда дает false в логическом контексте те  оператор && запинается на лжи, дальше код не сработает) Аналогично и для оператора или (||) только он всегда запинается на праде
+
+// 7)Есть ли разница между выражениями? !!( a && b ) и (a && b)?
+// console.log(!!( 1 && 2 ) === (1 && 2)); //два эти выражения не равны !! - превращают следующее выражение в булиновое
+
+// 8) Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
+//             // 3      3
+// alert( null || 2 && 3 || 4 );  // в результате выведется 3, смотрим таблица приоритеов операторов
+
+// 9) a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
+// const a = [1, 2, 3]; 
+// const b = [1, 2, 3]; //Правда ли что a == b ? - нет это две разные переменные которые содержат свою инфу (два разные ящика но похожи с одинаковым количеством яблок например)
+// console.log(a == b);
+
+// 10)Что выведет этот код: alert( +"Infinity" ); ?
+
+// alert( +"Infinity" ); //Infinity тип данных число, потому что стоит унарный плюс
+
+//11 Верно ли сравнение: "Ёжик" > "яблоко"?
+
+// console.log("Ёжик" > "яблоко"); //идет посимвольное значение (юникод) сравниваются буквы по алфавиту и верхний нижний регистр - необходимо открыть таблицу с символами юникод и посмотреть 
+
+//12 Чему равно 0 || "" || 2 || undefined || true || falsе ?
+// console.log(0 || "" || 2 || undefined || true || falsе); // или запинается на правлу -дальше код не пойдет, получаем 2
